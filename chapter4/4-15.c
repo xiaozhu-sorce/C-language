@@ -6,7 +6,7 @@ int main ()
     printf("结束数值（cm）："); scanf("%d",&b);
     printf("间隔（cm）："); scanf("%d",&c);
     for(i=a;i<=b;i+=c)
-        printf("%dcm   %.2fkg\n,i,double(i-100)*0.9");
+        printf("%d cm   %.2fkg\n",i,(double)(i-100)*0.9);
     printf("\n");
     return 0;
 }
