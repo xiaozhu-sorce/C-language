@@ -7,6 +7,7 @@ int str_char(const char s[],int c){
             j++;
         }
         i++;
+    }
     return j;    
 }
 
