@@ -1,7 +1,6 @@
 #include<stdio.h>
-#define NUM1 4
-#define NUM2 128
-void put_strary(char s[][NUM2],int n)
+#include<string.h>
+void put_strary(char s[][128],int n)
 {
     int i=0;
     for ( i = 0; i < n; i++)
@@ -19,31 +18,27 @@ void put_strary(char s[][NUM2],int n)
 }
 int main (void)
 {
-    char s[NUM1][NUM2];
-    int i=0,j,m;
-    int ch;
-        printf("请输入字符串:\n");
-    for ( i = 0; i < NUM1; i++)
+    int i;
+    char*s[4][128];
+    char*p="$$$$$";
+    printf("请输入字符串:\n");
+    for ( i = 0; i < 4; i++)
     {
-        printf("s[%d]：",i); scanf("%s",s[i]);
-        j=m=0;
-        while ((ch=getchar())!=EOF)
-        {   
-            if (ch=='$')
-            { 
-                j++;
-            }
-            else
-            {
-                m++; 
-            }
+        printf("s[%d]:",i); scanf("%s",s[i]);
+        while ((*s==*p)&&(*s!='\0'))
+        {
+            s++;
+            p++;
         }
-        if (j==5 && m==0)
+        
+        if ((*s[i]-*p)==0)
         {
             break;
         }
+        
     }
+    
     printf("该字符串为：\n");
-    put_strary(s,NUM1);
+    put_strary(s,4);
     return 0;
 }

@@ -1,16 +1,15 @@
 
 #include<stdio.h>
 #define NUMBER 80
-void del_digit(char s[])
+void del_digit(char *s)
 {
-    int i=0;
-    while(s[i]!='\0')
+    while(*s)
     {
         
-        {if((s[i]>='a'&&s[i]<='z')||(s[i]>='A'&&s[i]<='Z'))
-            putchar(s[i]);
+        {if((*s>='a'&&*s<='z')||(*s>='A'&&*s<='Z'))
+            putchar(*s);
         }
-        i++;
+        s++;
     }
  
 }

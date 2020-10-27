@@ -22,7 +22,7 @@ int main (void)
 {
     char s[NUM1][NUM2];
     int i=0;
-        printf("请输入字符串:\n");
+    printf("请输入字符串:\n");
     for ( i = 0; i < NUM1; i++)
     {
         printf("s[%d]：",i); scanf("%s",s[i]);
