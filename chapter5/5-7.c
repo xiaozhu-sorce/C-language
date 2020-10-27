@@ -17,15 +17,15 @@ int main ()
     
     for ( i = 0; i < a; i++)
     {
-        printf("%d号：",i+1); scanf("%d",&X[NUMBER]);
+        printf("%d号：",i+1); scanf("%d",&X[i]);
     }
     printf("{");
     for ( j = 0; j < a; j++)
     {
         if (j==a-1)
-            printf("%d",X[NUMBER]);
+            printf("%d",X[j]);
         else
-            printf("%d，",X[NUMBER]);
+            printf("%d，",X[j]);
     }
     printf ("}");
     return 0;
