@@ -2,10 +2,14 @@
  
 #include<stdio.h>
 int main (void){
-    int i;
-    while ((scanf("%d",&i))!=EOF)
-    {  
-        printf("%c",i);
+    int i,n;
+    char p[1000]={0};
+    scanf("%d",&n);
+	  for(i = 0 ; i < n ; i++){
+		  scanf("%d",&p[i]);
     }
+    for(i = 0 ; i < n ; i++){
+		printf("%c",p[i]);
+	}
     return 0;
 }
