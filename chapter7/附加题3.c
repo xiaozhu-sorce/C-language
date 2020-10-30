@@ -3,11 +3,11 @@
 int main (void){
     char  ch;
     int a=0;
-    while (ch=getchar(),ch!='\n')
+    while ((ch=getchar())!=EOF)
     {
     a=a*2+(ch-'0');
     }
-    printf("%d",a);
+    printf("\n%d",a);
     return 0;
     
 }

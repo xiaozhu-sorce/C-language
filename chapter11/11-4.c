@@ -10,7 +10,7 @@ void put_string (const char*s){
 } 
 int main (void)
 {
-	char *s = "HELLOworld";
+	char *s = "HELLOWworld";
 	
 	put_string(s);
 	
