@@ -1,8 +1,7 @@
 /*打印出1~100以内的素数，每五个数字一行。*/
 #include<stdio.h>
 int main (void){
-    int i,j,r,len=01;
-    printf(" 2 ");
+    int i,j,r,len=0;
     for ( i = 2; i < 101; i++)
     {
         r=0;
@@ -14,7 +13,7 @@ int main (void){
             }                    
             r++;
         }
-        if (r)
+        if (r==(i-2))
         {
             printf(" %d ",i); len++;
         }
