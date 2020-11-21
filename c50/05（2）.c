@@ -1,4 +1,4 @@
-//
+//100-n之间的所有素数的个数
 #include<stdio.h>
 int main (){
     int i,j,len=0;
