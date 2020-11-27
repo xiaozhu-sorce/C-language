@@ -28,6 +28,7 @@ int main(){
         {
             printf("%d",b[i][j]);
         }
+        putchar('\n');
     }
     return 0;
 }
