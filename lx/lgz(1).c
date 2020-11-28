@@ -2,16 +2,10 @@
 int main(){
     char str[10][30];
     int i=0;
-    char s1=" 1";
+    char s1=" ";
     while (i<5)
     {
         scanf("%s",str[i]);
-        i++;
-    }
-    i=0;
-    while (i<5)
-    {
-        strcat(str[i],s1);
         i++;
     }
     i=0;
