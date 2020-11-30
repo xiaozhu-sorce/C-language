@@ -1,17 +1,11 @@
 #include<stdio.h>
 int main (){
-    int m,n,x,y,i,j,t,k;
-    int max;
-    int b=0,c,d;
-    int a[1000][1000];
-    int sum[1000];
-    while (scanf("%d",&t)!=EOF&&t!=0)
-    {
-        for (k= 0; k < t; k++)
-        {
+    int m,n,x,y,i,j,t,k,max,c,d,b=0;
+    int a[1000][1000],sum[10000];
+    while (scanf("%d",&t)!=EOF&&t!=0){
+        for (k= 0; k < t; k++){
             scanf("%d%d%d%d",&m,&n,&x,&y);
-            for ( i = 0; i <  m; i++)
-            {
+            for ( i = 0; i <  m; i++){
                 for (j = 0; j < n; j++)
                 {
                     scanf("%d",&a[i][j]);
