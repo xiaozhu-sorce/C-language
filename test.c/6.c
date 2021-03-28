@@ -1,35 +1,36 @@
-//对于一个给定的 N，请你寻找一个回文数 P，满足 P>N。 满足这样条件的回文数很多，你的任务是输出其中最小的一个。
-#include<stdio.h>
-int huiwen1(int n){
-    int a,b;
-    a=n%10;
-    b=n/10;
-    if (a==b)
+#include <stdio.h>
+int pow(int x,int y){
+    int a=1,i;
+    for ( i = 0; i < y; i++)
     {
-        return n;
+        a+=a*x;
     }
-    else
-    {
-        return 0;
-    }
-    
+    return a;
 }
-int main(void){
-    int  n,i;
-    scanf("%d",&n);
-    if (n>=0&&n<=10)
-    {
-        printf("%d",n+1);
-    }
-    if (n>10&&n<100)
-    {
-        for ( i = n+1; i < 100; i++)
-        {
-            if (huiwen1(i)!=0)
-            {
-               printf("%d",huiwen1(i)); break;
-            }   
-        }           
-    }
-    return 0;
+int main (void)
+{
+	int n,x;
+	int tmp = 0;
+	int a = 0;
+	int i;
+	scanf("%d",&n);
+	x = n;
+	while(x){                     //数出n的位数 
+		x /= 10;
+		a++;
+	}
+	while(1){
+		tmp = 0; 
+		x = n;
+		for( i = a ; i > 0 ; i--){              //输出n取逆的数 
+			tmp += x % 10  * pow(10,i - 1);
+			x /= 10;
+		}  
+		if( tmp == n)
+			break;
+		n++;
+	}
+	printf("%d",tmp);
+	
+	return 0;
 }

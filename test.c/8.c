@@ -10,6 +10,7 @@ int gcd(int a,int b){
     }
     return b;
 }
+
 int main (){
     int n,i,j;
     int sum[100];
