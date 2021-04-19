@@ -1,7 +1,7 @@
 //超长整数的加法
 #include<stdio.h>
+#include<conio.h>
 #include<string.h>
-#include <termios.h>
 #define N 20
 
 void beep();
@@ -12,29 +12,16 @@ void LeftTrim(char str[]);
 
 int tag=0;
 
-void main(){
-    char a[N+1]={0},b[N+1]={0},c[N+2];
-
-    printf("a=");
-    while (strlen(a) == 0)
-    {
-        GetNumberStr(a);
-    }
-    printf("\nb=");
-    while (strlen(b) == 0)
-    {
-        GetNumberStr(b);
-    }
-    
-    AddNumberStr(a,b,c);
-    printf("\n a+b=%s \n",c);
+void beep(){
+    printf("\07");
 }
+
 void GetNumberStr(char s[]){
     int i = 0;
     char ch;
     while (1)
     {
-        ch = getch();
+        ch=getch();
         if (ch=='\r')
             break;
         
@@ -67,8 +54,19 @@ void GetNumberStr(char s[]){
     s[i]='\0'; 
 }
 
-void beep(){
-    printf("\07");
+char AddChar (char ch1,char ch2){
+    char ch;
+    ch = (ch1-0x30+ch2-0x30)+tag;
+    if (ch>=10)
+    {
+        tag=1;
+        return (ch-10+0x30);
+    }
+    else{
+        tag=0;
+        return (ch+0x30);
+    }
+    
 }
 
 void AddNumberStr(char a[],char b[], char c[]){
@@ -97,48 +95,29 @@ void AddNumberStr(char a[],char b[], char c[]){
     LeftTrim(c);
 }
 
-char AddChar (char ch1,char ch2){
-    char ch;
-    ch = (ch1-0x30+ch2-0x30)+tag;
-    if (ch>=10)
-    {
-        tag=1;
-        return (ch-10+0x30);
-    }
-    else{
-        tag=0;
-        return (ch+0x30);
-    }
-    
-}
-
 void LeftTrim(char str[]){
     int i;
     for ( i = 0; str[i]==' '; i++)
     {
 
     }
-    strcpy(str,str+1);
+    strcpy(str,str+i);
 }
-char getch(void)
-{
-    char buf = 0;
-    struct termios old = {0};
-    fflush(stdout);
-    if(tcgetattr(0, &old) < 0)
-        perror("tcsetattr()");
-    old.c_lflag &= ~ICANON;
-    old.c_lflag &= ~ECHO;
-    old.c_cc[VMIN] = 1;
-    old.c_cc[VTIME] = 0;
-    if(tcsetattr(0, TCSANOW, &old) < 0)
-        perror("tcsetattr ICANON");
-    if(read(0, &buf, 1) < 0)
-        perror("read()");
-    old.c_lflag |= ICANON;
-    old.c_lflag |= ECHO;
-    if(tcsetattr(0, TCSADRAIN, &old) < 0)
-        perror("tcsetattr ~ICANON");
-    printf("%c\n", buf);
-    return buf;
- }
+
+void main(){
+    char a[N+1]={0},b[N+1]={0},c[N+2];
+
+    printf("a=");
+    while (strlen(a) == 0)
+    {
+        GetNumberStr(a);
+    }
+    printf("\nb=");
+    while (strlen(b) == 0)
+    {
+        GetNumberStr(b);
+    }
+    
+    AddNumberStr(a,b,c);
+    printf("\na+b=%s \n",c);
+}

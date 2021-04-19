@@ -73,13 +73,13 @@ void MultiplyNumberStr(char a[],char b[],char c[]){
     i=strlen(a)-1;
     j=strlen(b)-1;
     
-    for(m=0; m< i+1; m++){
+    for(m=0; m< i+1; m++){    //计算积的各个位置的得数
     	for(n=0; n< j+1; n++){
 			c[m+n] += (a[m]-0x30)*(b[n]-0x30);
 		}
 	}
 	
-    for(m = i + j; m > 0; --m) {
+    for(m = i + j; m > 0; --m) {    //处理进位
         if(c[m] > 9) {
             c[m - 1] += c[m] / 10;
             c[m] = c[m] % 10 + 0x30;

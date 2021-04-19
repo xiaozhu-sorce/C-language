@@ -83,31 +83,34 @@ void DivideNumberStr(char a[],char b[],int c[]){
     while(1)
 	    {
             c[k]=0;
-            while(strcmp(a,b)>=0)
+            while(strcmp(a,b)>=0)   //判断a是否大于b，当a>b时，继续进行减法，减法进行的次数即为商第k位的值
             {
                 DeleteNumber(m);
                 c[k]++;
             }
             k++;
-            if(n==m)   break;
-            for(i=m-1; i>=0; i--)
+            if(n==m)   break;  //两字符串的长度相同时，循环结束
+            for(i=m-1; i>=0; i--)   //将除数的每个字符左移一个位置，最后一位补0
                 b[i+1]=b[i];
             b[0]='0';
             m++;
             b[m]='\0';
         }
-    printf("\n a/b=");
+
+    printf("\na/b=");
     i=0;
-    while(c[i]==0) i++;
-        for(; i<k; i++)
-            printf("%d",c[i]);
-    
+    while(c[i]==0){
+        i++;
+        for(; i<k; i++){  //输出商：int型数组
+            printf("%d",c[i]); 
+        }
+    } 
     c[N+1] = '\0';
 }
 
-void DeleteNumber(int m){
+void DeleteNumber(int m){  //长度相同的两个数字字符串减法运算
     int i=0,j;
-    while(1)
+    while(1)  //寻找第一个非0字符位置
     {
         if(a[i]=='0') i++;
         else
@@ -116,9 +119,9 @@ void DeleteNumber(int m){
             break;
         }
     }
-    for(; i<m; i++)
+    for(; i<m; i++)  //两个数字字符串作减法
         a[i]=a[i]-b[i]+'0';
-    for(i=m-1; i>j; i--)
+    for(i=m-1; i>j; i--)  //处理进位
         if(a[i]<'0')
         {
             a[i]+=10;
