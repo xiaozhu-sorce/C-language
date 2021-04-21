@@ -27,7 +27,7 @@ void main(){
     }
 
      DeleteNumberStr(a,b,c);
-     printf("\n a+b=%s \n",c);   
+     printf("\na-b=%s \n",c);   
 }
 void GetNumberStr(char s[]){
     int i = 0;
@@ -70,6 +70,20 @@ void beep(){
     printf("\07");
 }
 
+char DeleteChar(char ch1,char ch2){
+    char ch;
+    ch = (ch1-ch2)-tag;
+    if (ch<0)
+    {
+        tag=1;
+        return (ch+0x30+10);
+    }else{
+        tag=0;
+        return (ch+0x30);
+    }
+
+}
+
 void DeleteNumberStr(char a[],char b[],char c[]){
     int i,j,k;
     memset(c,' ',N+2);
@@ -88,23 +102,10 @@ void DeleteNumberStr(char a[],char b[],char c[]){
 
     if (tag == 1)
     {
-        printf("输入错误");
+        c[k] = a[i] - b[j] - 1;
     }
     c[N+1] = '\0';
     LeftTrim(c);
-}
-char DeleteChar(char ch1,char ch2){
-    char ch;
-    ch = (ch1-0x30-ch2-0x30)-tag;
-    if (ch<0)
-    {
-        tag=1;
-        return (ch+0x30+10);
-    }else{
-        tag=0;
-        return (ch+0x30);
-    }
-
 }
 
 void LeftTrim(char str[]){
@@ -113,5 +114,5 @@ void LeftTrim(char str[]){
     {
 
     }
-    strcpy(str,str+1);
+    strcpy(str,str+i);
 }
